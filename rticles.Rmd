@@ -382,3 +382,28 @@ include_graphics("img/files/fig_mv.png")
 <embed src="img/files/mensh_&_kording_2017.pdf" width="100%" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
 
 
+
+<!--chapter:end:index.Rmd-->
+
+
+`r if (knitr:::is_html_output()) '# References'`
+`r if (!knitr:::is_html_output()) '# References'`
+
+```{r include=FALSE}
+
+knitr::write_bib(c(.packages()),'style/pkgs.bib')
+
+```
+
+```{r}
+
+dir.create("img")
+dir.create("img/files")
+openxlsx::write.xlsx(x = fb, file = "img/files/data_set.xlsx")
+zip::zipr(zipfile = "img/files.zip", files = "img/files")
+
+```
+
+
+<!--chapter:end:ref.Rmd-->
+
